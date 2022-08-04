@@ -218,7 +218,7 @@ function M.buffer_jump(buf_pos)
     buf_pos = tonumber(buf_pos)
   end
   if buf_pos < 1 or buf_pos > #M.bufpos2nr then
-    error('Error: Unable to jump buffer position out of range')
+    vim.api.nvim_command('echom "Buffer index does not exist"')
   end
   vim.api.nvim_set_current_buf(M.bufpos2nr[buf_pos])
 end
